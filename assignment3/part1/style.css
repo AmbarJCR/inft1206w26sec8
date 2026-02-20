@@ -11,11 +11,6 @@ html {
 
 body {
   font: 1.2em / 1.5 system-ui;
-}
-/*
-Box Styles
-*/
-body {
   padding: 20px;
   width: 500px;
   background-color: #efefef;
