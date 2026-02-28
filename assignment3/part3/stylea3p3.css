@@ -43,6 +43,9 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  /* task 1 */
+  display: flex;
+  justify-content: space-around;
 }
 
 nav a {
