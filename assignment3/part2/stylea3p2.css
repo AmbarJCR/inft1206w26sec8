@@ -41,11 +41,6 @@ footer p {
   text-align: center;
 }
 
-
-
-
-
-
 /* apply fonts to the page */
 @import "https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap";
 
@@ -119,3 +114,38 @@ ul {
 }
 
 /* navigation menu styling */
+nav ul {
+  padding-left: 0;
+}
+
+nav li {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+nav li a {
+  font-family: "Bevan", serif;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 1px solid #aa6666;
+  color: #aa6666;
+  transition: 0.2s ease;
+}
+
+nav li a:hover,
+nav li a:focus {
+  background: #aa6666;
+  color: white;
+}
+
+nav li a:active {
+  color: white;
+  background: black;
+}
