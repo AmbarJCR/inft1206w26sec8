@@ -65,4 +65,7 @@ nav a {
 
 .feature {
   width: 200px;
+  /* task 3 */
+  float: left;
+  margin: 8px 32px 22px 0px;
 }
