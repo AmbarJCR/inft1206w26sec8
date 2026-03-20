@@ -17,18 +17,24 @@ function randomValueFromArray(array) {
 }
 
 // Raw text strings
+let characters = [
+    "Willy the Goblin",
+    "Big Daddy",
+    "Father Christmas"
+];
 
-// Willy the Goblin
-// Big Daddy
-// Father Christmas
+let places = [
+    "the soup kitchen",
+    "Disneyland",
+    "the White House"
+];
 
-// the soup kitchen
-// Disneyland
-// the White House
+let events = [
+    "spontaneously combusted",
+    "melted into a puddle on the sidewalk",
+    "turned into a slug and slithered away"
+];
 
-// spontaneously combusted
-// melted into a puddle on the sidewalk
-// turned into a slug and slithered away
 
 // Partial return random string function
 
