@@ -1,3 +1,10 @@
+/* 
+    Name: Ambar Cerino
+    File: p1.js
+    Date: 20 March, 2026
+    Description: assignment 4 part 1 
+*/
+
 // Complete variable definitions and random functions
 
 const customName = document.getElementById("custom-name");
