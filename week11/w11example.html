@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form div {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Week 11</title>
+</head>
+<body>
+    <h1>Week 11: Introduction to Form</h1>
+    <Form action="#" method="get">
+        <div>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" title="First Name">   
+        </div>
+        <div>
+            <label for="">Last name</label>
+            <input type="text" name="lname" id="lname" placeholder="Last Name">
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" id="pass" name="pass">
+        </div>
+        <div>
+            <label for="">Upload your assignment</label>
+            <input type="file">
+        </div>
+        <div>
+            <label for="">What are hoobies and interests:</label>
+            <div>
+                <input type="checkbox" id="interest1" name="interest" value="sports" checked>
+                <label for="interest1">Sports</label>
+                <div>
+                    <input type="checkbox" id="interest2" name="interest" value="music">
+                    <label for="interest2">Music</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="">Which OS do you prefer?</label>
+            <div>
+                <input type="radio" name="os" id="os1" value="windows" checked>
+                <label for="os1">Windows</label>
+                <input type="radio" name="os" id="os2" value="os2">
+                <label for="os2">OS2</label>
+            </div>
+        </div>
+        <div>
+            <label for="">What do you want to do this weekend?</label>
+            <select name="weekend" id="weekend">
+                <option value="coffe">Drink coffe</option>
+                <option value="book">Read a book</option>
+                <option>Sleep</option>
+            </select>
+        </div>
+        <div>
+            <label for="">How is the web development going so far?</label>
+            <div>
+                <textarea name="" id="" rows="5" cols="20"></textarea>
+            </div>
+        </div>
+
+        <input type="button" value="OK">
+        <input type="submit">
+        <input type="reset">
+    </Form>
+</body>
+</html>
