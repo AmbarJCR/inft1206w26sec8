@@ -22,10 +22,10 @@ let images = [
 ];
 
 // Add the images to the thumbnail bar
-const baseURL = "./img";
+const baseURL = "./img/";
 for (const image of images) {
     const newImg = document.createElement("img");
-    newImg.src = baseURL +images;
+    newImg.src = baseURL + image.filename;
     newImg.alt = image.alt;
     newImg.tabIndex = "0";
     thumbBar.appendChild(newImg)
@@ -42,3 +42,16 @@ function updateDisplayedImage(upDisplayedImg) {
     displayedImage.src = upDisplayedImg.target.src
     displayedImage.alt = upDisplayedImg.target.alt
 }
+
+//Wire up the Darken/Lighten button
+btn.addEventListener("click", () => {
+    if (btn.classList.contains("dark")) {
+        btn.textContent = "Darken";
+        overlay.style.backgroundColor = "rgb(0 0 0 / 0.5)";
+    }
+    else {
+        btn.textContent = "Lighten";
+        overlay.style.backgroundColor = "rgb(0 0 0 0/ 0)";
+    }
+    btn.classList.toggle("dark");
+})
