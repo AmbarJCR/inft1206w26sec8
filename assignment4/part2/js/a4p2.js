@@ -36,3 +36,9 @@ for (const image of images) {
         }
     });
 };
+
+// Create the updateDisplayedImage() function
+function updateDisplayedImage(upDisplayedImg) {
+    displayedImage.src = upDisplayedImg.target.src
+    displayedImage.alt = upDisplayedImg.target.alt
+}
