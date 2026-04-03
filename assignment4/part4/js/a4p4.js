@@ -125,14 +125,14 @@ class EvilCircle extends Shape {
         if (this.x + this.size >= width) {
             this.x -= this.size
         }
-        if (this.x - this.size <= 0) {
-            this.x += this.size
+        if (this.x + this.size <= 0) {
+            this.x -= this.size
         }
         if (this.y + this.size >= height) {
             this.y -= this.size
         }
-        if (this.y - this.size <= 0) {
-            this.y += this.size
+        if (this.y + this.size <= 0) {
+            this.y -= this.size
         }
     }
     // collision detect method
@@ -145,7 +145,7 @@ class EvilCircle extends Shape {
 
                 if (distance < this.size + ball.size) {
                     ball.exists = false;
-                    count++;
+                    count--;
                     ballCount.textContent = `Ball count: ${count}`;
                 }
             }
@@ -159,8 +159,8 @@ const balls = [];
 while (balls.length < 25) {
     const size = random(10, 20);
     const ball = new Ball(
-        random(0 + size, height - size),
         random(0 + size, width - size),
+        random(0 + size, height - size),
         random(-7, 7),
         random(-7, 7),
         randomRGB(),
