@@ -1,4 +1,9 @@
-
+/* 
+    Name: Ambar Cerino
+    File: a4p4.js
+    Date: 03 April, 2026
+    Description: assignment 4 part 4 javascript 
+*/
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
