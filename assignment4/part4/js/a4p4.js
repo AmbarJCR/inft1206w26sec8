@@ -4,6 +4,18 @@
     Date: 03 April, 2026
     Description: assignment 4 part 4 javascript 
 */
+
+// Create a Shape class
+class Shape {
+    constructor(x, y, velX, velY) {
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+    }
+
+}
+
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -20,14 +32,12 @@ function randomRGB() {
 }
 
 //Modeling a ball
-class Ball {
+class Ball extends Shape {
     constructor(x, y, velX, velY, color, size) {
-        this.x = x;
-        this.y = y;
-        this.velX = velX;
-        this.velY = velY;
+        super (x, y, velX, velY);
         this.color = color;
         this.size = size;
+        this.exists = true;
     }
 
     // Drawing the ball
@@ -56,20 +66,20 @@ class Ball {
         this.y += this.velY;
     }
 
-    // Adding collision detection
+    // Raplacing collision detection 
     collisionDetect() {
-        for (const ball of balls) {
-            if (this !== ball) {
-                const dx = this.x - ball.x;
-                const dy = this.y - ball.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+    for (const ball of balls) {
+      if (!(this === ball) && ball.exists) {
+        const dx = this.x - ball.x;
+        const dy = this.y - ball.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < this.size + ball.size) {
-                    ball.color = this.color = randomRGB();
-                }
-            }
+        if (distance < this.size + ball.size) {
+          ball.color = this.color = randomRGB();
         }
+      }
     }
+  }
 }
 
 const balls = [];
