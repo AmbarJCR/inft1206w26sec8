@@ -13,26 +13,26 @@ const height = (canvas.height = window.innerHeight);
 
 
 function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function randomRGB() {
-  return `rgb(${random(0, 255)} ${random(0, 255)} ${random(0, 255)})`;
+    return `rgb(${random(0, 255)} ${random(0, 255)} ${random(0, 255)})`;
 }
 
 //Modeling a ball
 class Ball {
-  constructor(x, y, velX, velY, color, size) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
-    this.color = color;
-    this.size = size;
-  }
+    constructor(x, y, velX, velY, color, size) {
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+        this.color = color;
+        this.size = size;
+    }
 
-  // Drawing the ball
-  draw() {
+    // Drawing the ball
+    draw() {
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
@@ -57,13 +57,27 @@ class Ball {
         this.y += this.velY;
     }
 
+    // Adding collision detection
+    collisionDetect() {
+        for (const ball of balls) {
+            if (this !== ball) {
+                const dx = this.x - ball.x;
+                const dy = this.y - ball.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.size + ball.size) {
+                    ball.color = this.color = randomRGB();
+                }
+            }
+        }
+    }
 
     // Animating the ball
-    while (balls.length < 25) {
-        const size = random(10,20);
+    while(balls.length < 25) {
+        const size = random(10, 20);
         const ball = new Ball(
-            random(0+size, height- size),
-            random(0+size, width- size),
+            random(0 + size, height - size),
+            random(0 + size, width - size),
             random(-7, 7),
             random(-7, 7),
             randomRGB(),
@@ -73,14 +87,15 @@ class Ball {
     }
 
     function loop() {
-        ctx.fillStyle = "rgb(0 0 0 / 25%)";
-        ctx.fillRect(0, 0, width, height);
-        for(const ball of balls) {
-            ball.draw();
-            ball.update();
-        }
-        requestAnimationFrame(loop);
+    ctx.fillStyle = "rgb(0 0 0 / 25%)";
+    ctx.fillRect(0, 0, width, height);
+    for (const ball of balls) {
+        ball.draw();
+        ball.update();
+        ball.collisionDetect();
     }
+    requestAnimationFrame(loop);
+}
 
-    loop();
+loop();
 }
