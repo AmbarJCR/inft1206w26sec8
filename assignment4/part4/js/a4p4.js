@@ -82,35 +82,6 @@ class Ball extends Shape {
     }
 }
 
-const balls = [];
-
-// Animating the ball
-while (balls.length < 25) {
-    const size = random(10, 20);
-    const ball = new Ball(
-        random(0 + size, height - size),
-        random(0 + size, width - size),
-        random(-7, 7),
-        random(-7, 7),
-        randomRGB(),
-        size,
-    );
-    balls.push(ball);
-}
-
-function loop() {
-    ctx.fillStyle = "rgb(0 0 0 / 25%)";
-    ctx.fillRect(0, 0, width, height);
-    for (const ball of balls) {
-        ball.draw();
-        ball.update();
-        ball.collisionDetect();
-    }
-    requestAnimationFrame(loop);
-}
-
-loop();
-
 // Defining EvilCircle
 class EvilCircle extends Shape {
     // EvilCircle constructor
@@ -176,3 +147,44 @@ class EvilCircle extends Shape {
         }
     }
 }
+
+const balls = [];
+
+// Animating the ball
+while (balls.length < 25) {
+    const size = random(10, 20);
+    const ball = new Ball(
+        random(0 + size, height - size),
+        random(0 + size, width - size),
+        random(-7, 7),
+        random(-7, 7),
+        randomRGB(),
+        size,
+    );
+    balls.push(ball);
+}
+
+const evilCircle = new EvilCircle (
+    random(0, width),
+    random(0,height)
+);
+// Bringing the evil circle into the program
+// Changes to the loop function
+function loop() {
+    ctx.fillStyle = "rgb(0 0 0 / 25%)";
+    ctx.fillRect(0, 0, width, height);
+    for (const ball of balls) {
+        if (ball.exists) {
+            ball.draw();
+            ball.update();
+            ball.collisionDetect();
+        }
+    }
+    EvilCircle.draw();
+    EvilCircle.checkBounds();
+    EvilCircle.collisionDetect();
+
+    requestAnimationFrame(loop);
+}
+
+loop();
