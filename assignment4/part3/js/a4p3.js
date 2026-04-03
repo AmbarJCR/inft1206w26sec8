@@ -71,6 +71,9 @@ class Ball {
             }
         }
     }
+}
+
+const balls = [];
 
     // Animating the ball
     while(balls.length < 25) {
@@ -87,15 +90,14 @@ class Ball {
     }
 
     function loop() {
-    ctx.fillStyle = "rgb(0 0 0 / 25%)";
-    ctx.fillRect(0, 0, width, height);
-    for (const ball of balls) {
-        ball.draw();
-        ball.update();
-        ball.collisionDetect();
+        ctx.fillStyle = "rgb(0 0 0 / 25%)";
+        ctx.fillRect(0, 0, width, height);
+        for (const ball of balls) {
+            ball.draw();
+            ball.update();
+            ball.collisionDetect();
+        }
+        requestAnimationFrame(loop);
     }
-    requestAnimationFrame(loop);
-}
-
+    
 loop();
-}
