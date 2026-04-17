@@ -1,3 +1,10 @@
+/* 
+    Name: Ambar Cerino
+    File: main.js
+    Date: 17 April, 2026
+    Description: assignment 5
+*/
+
 // functionality for showing/hiding the comments section
 
 const showHideBtn = document.querySelector('.show-hide');
