@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function validate() {
+            let fname = document.querySelector(`#fname`).value.trio();
+            if(fname.length==0){
+                document.querySelector(`fname error`).textContent = "You must provide value for teh first time";
+                docuemnt.querySelector(`fname error`).style.color="red";
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <title>Week 12</title>
+</head>
+<body>
+    <h1>Week Validation</h1>
+    <form action="https:/httpbin.org/get" method="get" onsubmit="return validate();">
+        <div>
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" id="fname" required >
+            <span id="frame-error"></span>
+        </div>
+        <div>
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" id="lname">
+        </div>
+        <div>
+            <label for="">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="99">
+        </div>
+        <div>
+            <input type="submit">
+            <input type="reset">
+        </div>
+    </form>
+</body>
+</html>
