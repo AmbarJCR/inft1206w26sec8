@@ -17,9 +17,11 @@ showHideBtn.onclick = function() {
   if(showHideText === 'Show comments') {
     showHideBtn.textContent = 'Hide comments';
     commentWrapper.style.display = 'block';
+    showHideBtn.setAttribute('aria-expanded', 'true');
   } else {
     showHideBtn.textContent = 'Show comments';
     commentWrapper.style.display = 'none';
+    showHideBtn.setAttribute('aria-expanded', 'false');
   }
 };
 
